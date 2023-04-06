@@ -8,8 +8,14 @@ import { supabase } from "../Config/supabase"
 
 const SignOut = async () => {
  const { error } = await supabase.auth.signOut()
- .then(console.log("Out"))
- .catch((re) => {console.log(re)})
+ if (error)
+  {
+    console.log(error)
+  }
+  else{
+    navigation.navigate("Login")
+  }
+ 
 }
 const Home = () => {
   const navigation = useNavigation();
