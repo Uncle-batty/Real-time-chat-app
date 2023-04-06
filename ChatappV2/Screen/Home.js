@@ -6,6 +6,7 @@ import Colors from "../colors";
 import { Entypo } from "@expo/vector-icons";
 import { supabase } from "../Config/supabase"
 
+ const navigation = useNavigation();
 const SignOut = async () => {
  const { error } = await supabase.auth.signOut()
  if (error)
@@ -18,7 +19,7 @@ const SignOut = async () => {
  
 }
 const Home = () => {
-  const navigation = useNavigation();
+ 
 
   useEffect(() => {
     navigation.setOptions({
@@ -35,6 +36,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
+    
       <TouchableOpacity
         style={styles.btn}
         onPress={() => navigation.navigate("Chat")}
